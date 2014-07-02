@@ -1,0 +1,11 @@
+traversal:traversal.o tree_main.o
+	g++ -g traversal traversal.o tree_main.o -lm
+
+traversal.o:traversal.cc
+	g++ -g -O -Wall traversal.cc
+
+tree_main.o:tree_main.cc
+	g++ -g -O -Wall tree_main.cc
+
+clean:
+	rm -rf traversal.o tree_main.o traversal
