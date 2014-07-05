@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     int *h; 
     int *buffer;
     int i;
+    node_t *n;
     if(argc != 2){
 	printf("usage: %s filename\n", argv[0]);
 	return 0;
@@ -22,5 +23,8 @@ int main(int argc, char *argv[])
     {
         printf("%d\n", buffer[i]);
     }
+
+    int ret=T.create_binary_tree(&n,&h,buffer,node_count);
+    printf("The value of ret is:%d\n", ret);
     return 0;
 }

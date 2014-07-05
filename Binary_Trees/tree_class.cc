@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include"tree_class.hh"
 #include"stdlib.h"
+
 using namespace std;
 int tree::read_node_values(int **ret_buffer, const char *filename)
 {
@@ -37,3 +38,16 @@ int tree::read_node_values(int **ret_buffer, const char *filename)
       return node_count;
 }
 
+int tree::create_binary_tree(node_t **ret_node, int **head, int *buffer, int node_count){
+    printf("Creaing the binary tree\n");
+    node_t n;
+    buffer_index = 0;
+    n = buffer[0];
+    buffer_index++;
+    while(buffer_index < node_count){
+	if(buffer[1] < buffer[0]){
+	    create_left
+	}
+    }
+    return 0;
+}

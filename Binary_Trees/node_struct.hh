@@ -1,6 +1,6 @@
-typedef struct node_t{
+struct node_t{
     int data;
-    int *left;
-    int *right;
-    int * parent;
-}node;
+    node_t *left;
+    node_t *right;
+    node_t *parent;
+};
