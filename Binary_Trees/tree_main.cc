@@ -1,46 +1,26 @@
 #include<stdio.h>
-#include "tree_class.hh"
+#include "tree_class.cc"
 #include "string.h"
+#include "stdlib.h"
 using namespace std;
 
-int create_tree(int *);
-
-int main()
+int main(int argc, char *argv[])
 {
     tree T;
     int *h; 
-    printf("This is a test by rohit\n");
-    int ret = create_tree(h);
-    return 0;
-}
-
-
-int create_tree(int *head)
-{
-
-    FILE *fp;
-    char c;
-    char *buffer;
+    int *buffer;
     int i;
-    fp = fopen("tree_node_values", "r");
-    fseek(fp, SEEK_SET, 0);
-    i = 0;
-    while(1){
-	c = fgetc(fp);
-	if(feof(fp)){
-	    break;
-	}
-	if(c != '\n'){
-	    buffer[i] = c;
-	    i++;
-	}
+    if(argc != 2){
+	printf("usage: %s filename\n", argv[0]);
+	return 0;
     }
-    //fread(buffer, sizeof(char), 14, fp);
-    printf("The read string is:\n");
-    for(i = 0; i < 7; i++)
+
+    int node_count = T.read_node_values(&buffer, argv[1]);
+    if(node_count == -1)
+	printf("Mentioned filename does not exist\n");
+    for(i = 0; i < node_count; i++)
     {
-	printf("%c\n", buffer[i]);
+        printf("%d\n", buffer[i]);
     }
-    fclose(fp);
-    return 0; 
+    return 0;
 }

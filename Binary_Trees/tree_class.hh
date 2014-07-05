@@ -1,6 +1,4 @@
-typedef struct tree_t{
-    int data;
-    int *left;
-    int *right;
-    int * parent;
-}tree;
+class tree {
+    public:
+	int read_node_values(int **, const char *);
+};
