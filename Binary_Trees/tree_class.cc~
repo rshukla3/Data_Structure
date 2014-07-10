@@ -142,25 +142,4 @@ int tree::preorder(node_t *n, int **buffer, int index){
     return index;
 }
 
-int tree::inorder(node_t *n, int **buffer, int index){
-    int ret_index = index;
-    if(n->left != NULL){
-	ret_index = inorder(n->left,buffer,index);
-    }
-
-    int *tmp_buffer = *buffer;
-    index = ret_index;
-    tmp_buffer[index] = n->data;
-    index++;
-    ret_index++;
-    tmp_buffer = (int *)realloc(tmp_buffer,(index+1)*(sizeof(int)));
-    *buffer = tmp_buffer;
-    
-    if(n->right != NULL){
-        ret_index = inorder(n->right,buffer,index);
-    }
-    index = ret_index;
-    return index;
-}
-
 
