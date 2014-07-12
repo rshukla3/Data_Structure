@@ -1,11 +1,11 @@
-sort: Sort_STL.o Sort_main.o
-	g++ -o sort Sort_main.o Sort_STL.o -lm
+sort: libsort.so Sort_main.cc
+	g++  -o sort Sort_main.cc -Wall -lsort -L.
+
+libsort.so: Sort_STL.o
+	g++ -shared -o libsort.so Sort_STL.o
 
 Sort_STL.o: Sort_STL.cc
-	g++ -c -O -Wall Sort_STL.cc
-
-Sort_main.o: Sort_main.cc
-	g++ -c -O -Wall Sort_main.cc
+	g++ -c -g -fpic Sort_STL.cc -Wall
 
 clean:
-	rm -rf Sort_main.o Sort_STL.o sort
+	rm -rf libsort.so Sort_STL.o sort
