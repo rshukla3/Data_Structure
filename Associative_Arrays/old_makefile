@@ -1,0 +1,11 @@
+maps: libmaps.so Assoc_Array_main.cc
+	g++  -o maps Assoc_Array_main.cc -Wall -lmaps -L.
+
+libmaps.so: Map_STL.o
+	g++ -shared -o libmaps.so Map_STL.o
+
+Map_STL.o: Map_STL.cc
+	g++ -c -g -fpic Map_STL.cc -Wall
+
+clean:
+	rm -rf libmaps.so Map_STL.o maps
